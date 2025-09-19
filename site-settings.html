@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site Settings - Developer Tools</title>
+  <link rel="stylesheet" href="dev-style.css" />
+  <style>
+    .settings-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #4e342e;
+      padding: 25px 30px;
+      border-radius: 12px;
+      color: #fff3e0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin: 15px 0 8px 0;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    .save-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #cc0000;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+    .save-btn:hover {
+      background-color: #e53935;
+    }
+    .back-btn {
+      display: inline-block;
+      background-color: #6d4c41;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .back-btn:hover {
+      background-color: #8d6e63;
+    }
+  </style>
+</head>
+<body>
+  <div class="settings-container">
+    <h2>Site Settings</h2>
+    
+    <label for="siteTitle">Website Title</label>
+    <input type="text" id="siteTitle" placeholder="Enter website title" />
+
+    <label for="themeColor">Theme Color</label>
+    <input type="color" id="themeColor" />
+
+    <label for="contactEmail">Contact Email</label>
+    <input type="email" id="contactEmail" placeholder="your@email.com" />
+
+    <label for="maintenanceMode">Maintenance Mode</label>
+    <select id="maintenanceMode">
+      <option value="off">Off</option>
+      <option value="on">On</option>
+    </select>
+
+    <button class="save-btn" id="saveSettings">💾 Save Settings</button>
+    <a href="developer-tools.html" class="back-btn">⬅ Back to Developer Tools</a>
+  </div>
+
+  <script>
+    const siteTitle = document.getElementById('siteTitle');
+    const themeColor = document.getElementById('themeColor');
+    const contactEmail = document.getElementById('contactEmail');
+    const maintenanceMode = document.getElementById('maintenanceMode');
+    const saveBtn = document.getElementById('saveSettings');
+
+    // Apply theme color instantly
+    function applyThemeColor(color) {
+      document.documentElement.style.setProperty('--theme-color', color);
+      document.querySelectorAll('header, footer').forEach(el => {
+        el.style.backgroundColor = color;
+      });
+    }
+
+    // Load saved settings
+    window.addEventListener('load', () => {
+      const settings = JSON.parse(localStorage.getItem('siteSettings')) || {};
+      if (settings.title) siteTitle.value = settings.title;
+      if (settings.themeColor) {
+        themeColor.value = settings.themeColor;
+        applyThemeColor(settings.themeColor);
+      }
+      if (settings.contactEmail) contactEmail.value = settings.contactEmail;
+      if (settings.maintenanceMode) maintenanceMode.value = settings.maintenanceMode;
+    });
+
+    // Change theme color live
+    themeColor.addEventListener('input', (e) => {
+      applyThemeColor(e.target.value);
+    });
+
+    // Save settings to localStorage
+    saveBtn.addEventListener('click', () => {
+      const settings = {
+        title: siteTitle.value.trim(),
+        themeColor: themeColor.value,
+        contactEmail: contactEmail.value.trim(),
+        maintenanceMode: maintenanceMode.value
+      };
+      localStorage.setItem('siteSettings', JSON.stringify(settings));
+      alert('Settings saved successfully!');
+    });
+  </script>
+</body>
+</html>

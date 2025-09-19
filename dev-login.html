@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Login - Dragon Boat Club</title>
+  <link rel="stylesheet" href="dev-style.css" />
+  <style>
+    .login-container {
+      background-color: #4e342e; /* coffee brown */
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 400px;
+      margin: 100px auto;
+      color: #fff3e0; /* cream */
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 30px;
+      font-weight: 700;
+      color: #ffccbc;
+    }
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ffe6cc;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    button[type="submit"] {
+      background-color: #a1887f;
+      color: #3e2723;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #d7ccc8;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #6d4c41;
+      color: #fff3e0;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    .back-btn:hover {
+      background-color: #8d6e63;
+      color: #3e2723;
+    }
+    #loginMessage {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Developer Login</h2>
+
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Log In</button>
+    </form>
+
+    <p id="loginMessage"></p>
+
+    <!-- New Teacher Login Button -->
+     <button class="teacher-btn" onclick="location.href='teacher-login.html'">
+      You are Teacher? - Log in Here!
+     </button>
+
+    <p style="margin-top: 15px;">
+      <a href="forgot-password.html" style="color: #ffccbc;">Forgot Password?</a>
+    </p>
+
+    <a href="index.html" class="back-btn">← Back to Website</a>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

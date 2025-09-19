@@ -1,0 +1,132 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #3e2723; /* Dark coffee background */
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.admin-container {
+  background: #4e342e; /* Rich coffee brown */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+}
+
+/* Headings */
+.admin-container h1,
+.admin-container h2 {
+  color: #ffccbc; /* Light coffee cream */
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* Tool List */
+.tool-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.tool-list li {
+  margin: 10px 0;
+}
+
+.tool-list a {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #6d4c41; /* Coffee latte shade */
+  color: #fff3e0; /* Cream text */
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tool-list a:hover {
+  background-color: #8d6e63; /* Lighter coffee */
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Logout Links */
+.logout-link {
+  color: #ffe066; /* Golden yellow */
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.logout-link:hover {
+  color: #ffffff;
+}
+
+/* Logout Button Style (if used) */
+.logout-section {
+  margin-top: 30px;
+}
+
+.logout-btn {
+  text-decoration: none;
+  color: white;
+  background-color: #a1887f; /* Soft latte */
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #d7ccc8; /* Cream highlight */
+  color: #3e2723;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #6d4c41; /* matching coffee color */
+  color: #fff3e0;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #8d6e63;
+  color: #3e2723;
+}
+
+.teacher-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 15px;
+  background-color: #6d4c41; /* coffee tone similar to back-btn */
+  color: #fff3e0; /* cream text */
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.teacher-btn:hover{
+  background-color: #8d6e63; /* lighter coffee */
+  color: #3e2723; /* darker text on hover */
+  transform: scale(1.03); /* subtle pop effect */
+}

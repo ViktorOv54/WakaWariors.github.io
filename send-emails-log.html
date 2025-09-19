@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dragon Boat Club | Developer Tools - Send Emails Log</title>
+  <link rel="stylesheet" href="dev-style.css" />
+  <style>
+    /* Additional styling for table and controls */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #4e342e; /* match dev tools bg */
+      padding: 20px 30px;
+      border-radius: 12px;
+      color: #fff3e0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #ffccbc;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background: #6d4c41;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #8d6e63;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    th {
+      background-color: #8d6e63;
+    }
+    tr:hover {
+      background-color: #8d6e63;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #3e2723;
+      font-weight: 700;
+    }
+    .btn-group {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .btn-clear, .btn-back {
+      background-color: #a1887f;
+      color: #3e2723;
+      border: none;
+      padding: 10px 22px;
+      margin: 0 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-clear:hover {
+      background-color: #d7ccc8;
+    }
+    .btn-back:hover {
+      background-color: #d7ccc8;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      th, td {
+        font-size: 0.8rem;
+      }
+      .btn-clear, .btn-back {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sent Emails Log</h1>
+    <input type="text" id="searchInput" placeholder="Search emails by recipient, subject, or message..." />
+
+    <table id="emailLogTable">
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Recipient Email</th>
+          <th>Subject</th>
+          <th>Message Preview</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be inserted here dynamically -->
+      </tbody>
+    </table>
+
+    <div class="btn-group">
+      <button class="btn-clear" id="clearLogsBtn">Clear Logs</button>
+      <a href="developer-tools.html" class="btn-back">Back to Developer Tools</a>
+    </div>
+  </div>
+
+  <script>
+    // Dummy initial data to seed logs if empty
+    const initialEmails = [
+      {
+        date: '2025-08-01 10:15:30',
+        recipient: 'john.doe@example.com',
+        subject: 'Welcome to Dragon Boat Club!',
+        message: 'Hi John, thank you for joining our club! We look forward to seeing you at practice.'
+      },
+      {
+        date: '2025-08-05 14:47:12',
+        recipient: 'jane.smith@example.com',
+        subject: 'Event Reminder: Annual Festival',
+        message: 'Dear Jane, don\'t forget the Annual Festival next weekend. Please arrive early for warm-ups.'
+      },
+      {
+        date: '2025-08-10 09:30:45',
+        recipient: 'peter.pan@example.com',
+        subject: 'Membership Renewal',
+        message: 'Hi Peter, your membership expires soon. Please renew to continue enjoying club benefits.'
+      }
+    ];
+
+    const storageKey = 'dragonBoatEmailLogs';
+
+    function loadLogs() {
+      let logs = JSON.parse(localStorage.getItem(storageKey));
+      if (!logs || logs.length === 0) {
+        logs = initialEmails;
+        localStorage.setItem(storageKey, JSON.stringify(logs));
+      }
+      return logs;
+    }
+
+    function saveLogs(logs) {
+      localStorage.setItem(storageKey, JSON.stringify(logs));
+    }
+
+    function renderLogs(filter = '') {
+      const tbody = document.querySelector('#emailLogTable tbody');
+      const logs = loadLogs();
+      tbody.innerHTML = ''; // Clear existing
+
+      const filtered = logs.filter(email => {
+        const searchText = filter.toLowerCase();
+        return email.recipient.toLowerCase().includes(searchText) ||
+               email.subject.toLowerCase().includes(searchText) ||
+               email.message.toLowerCase().includes(searchText);
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; font-style: italic;">No emails found.</td></tr>`;
+        return;
+      }
+
+      filtered.forEach(email => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${email.date}</td>
+          <td>${email.recipient}</td>
+          <td>${email.subject}</td>
+          <td>${email.message.length > 40 ? email.message.substring(0, 40) + '...' : email.message}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      renderLogs(e.target.value);
+    });
+
+    document.getElementById('clearLogsBtn').addEventListener('click', () => {
+      if (confirm('Are you sure you want to clear all email logs? This action cannot be undone.')) {
+        localStorage.removeItem(storageKey);
+        renderLogs();
+      }
+    });
+
+    // Initial render
+    renderLogs();
+  </script>
+</body>
+</html>
