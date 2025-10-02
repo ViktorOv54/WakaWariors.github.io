@@ -1,0 +1,126 @@
+/* ===========================
+   Admin Login Page - Space Theme
+=========================== */
+
+/* Body and Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('Photos/space-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+/* Login Container (Frosted Glass) */
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px 50px;
+    width: 350px;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(36, 70, 130, 0.6), 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Title */
+.login-container h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Form */
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels */
+#loginForm label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #e0e0e0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Inputs */
+#loginForm input {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    outline: none;
+    font-size: 16px;
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+    transition: border 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#loginForm input:focus {
+    border: 1px solid #244682;
+    background-color: rgba(255,255,255,0.3);
+    box-shadow: 0 0 10px rgba(36, 70, 130, 0.5);
+}
+
+/* Buttons */
+#loginForm button {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #244682;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#loginForm button:hover {
+    background: #702257;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(112, 34, 87, 0.7);
+}
+
+/* Error message */
+#error-msg {
+    color: #ff5555;
+    margin-top: 10px;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Back button */
+.back-btn {
+    margin-top: 15px;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(36,70,130,0.7);
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #702257;
+    box-shadow: 0 0 12px rgba(112,34,87,0.7);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .login-container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+}

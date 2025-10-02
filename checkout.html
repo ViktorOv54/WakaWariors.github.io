@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Dragon Boat Club Shop</title>
+<link rel="stylesheet" href="shop style.css">
+<style>
+.checkout-container {
+    background: var(--primary-light);
+    border-radius: 25px;
+    padding: 40px 50px;
+    max-width: 450px;
+    margin: 50px auto;
+    box-shadow: 0 8px 25px var(--shadow);
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.checkout-container h1 {
+    margin-bottom: 25px;
+    color: var(--accent-purple);
+}
+
+.checkout-container input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--shadow);
+    font-size: 16px;
+    outline: none;
+    background-color: #f0f0f0;
+    color: var(--text-dark);
+}
+
+.checkout-container input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 10px rgba(36,70,130,0.3);
+}
+
+.checkout-container button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--accent-purple);
+    color: var(--text-light);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkout-container button:hover {
+    background-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(36,70,130,0.5);
+}
+
+#back-btn {
+    margin-top: 15px;
+    background-color: var(--accent-blue);
+}
+
+#back-btn:hover {
+    background-color: var(--accent-purple);
+}
+
+#payment-msg {
+    margin-top: 15px;
+    font-weight: bold;
+    color: green;
+}
+</style>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">
+        <img src="Photos/Dragon Boat Logo (3rd - 4th Iteration) v2.png" alt="Dragon Boat Logo">
+        <span>Dragon Boat Shop</span>
+    </div>
+    <nav class="nav-links">
+        <a href="shop.html">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="about.html">About</a>
+        <a href="login.html">Admin</a>
+    </nav>
+</header>
+
+<div class="checkout-container">
+    <h1>Checkout</h1>
+    <form id="checkoutForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="John Doe" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="john@example.com" required>
+
+        <label for="card">Card Number</label>
+        <input type="text" id="card" placeholder="1234 5678 9012 3456" required>
+
+        <label for="expiry">Expiry Date</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required>
+
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" placeholder="123" required>
+
+        <button type="submit">Pay Now</button>
+    </form>
+    <button id="back-btn" onclick="window.location.href='cart.html'">⬅ Back to Cart</button>
+    <p id="payment-msg"></p>
+</div>
+
+<script>
+document.getElementById('checkoutForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('payment-msg').textContent = '✅ Payment Successful! Thank you for your purchase.';
+    localStorage.removeItem('cart');
+    setTimeout(() => {
+        window.location.href = 'shop.html';
+    }, 2500);
+});
+</script>
+</body>
+</html>

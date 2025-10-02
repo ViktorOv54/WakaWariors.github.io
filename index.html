@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dragon Boat Club</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <style>
+        footer {
+            display: flex;
+            justify-content: space-between; /* text left, button right */
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f1f1f1; /* adjust to match your design */
+        }
+
+        .telegram-bot {
+            background-color: black; 
+            border-radius: 50%;
+            width: 50px;   /* size of button */
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+        }
+
+        .telegram-bot img {
+            width: 28px;  /* icon size */
+            height: 28px;
+        }
+
+        .telegram-bot:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="Photos/Dragon Boat Logo (3rd - 4th Iteration) v2.png" alt="Dragon Boat Club Logo" class="logo">
+            <h1>Welcome to the Dragon Boat Club</h1>
+        </div>    
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    </header>
+
+    <main>
+        <section>
+            <h2>Discover the Spirit of Dragon Boating</h2>
+            <p>Join our vibrant community and experience the thrill of the water!</p>
+            <p>You can also check our past Races Results, and become member of our community.</p>
+            <div class="button-container">
+                <a href="races.html" class="races-btn">View Races Results</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Dragon Boat Club | All rights reserved.</p>
+
+        <!-- Telegram Button -->
+         <a href="https://t.me/dragon_boat_customers_bot" target="_blank" class="telegram-bot">
+            <img src="Photos/telegram icon.png" alt="Chat on Telegram">
+        </a>
+    </footer>
+</body>
+</html>

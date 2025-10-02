@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dragon Boat Admin Panel</title>
+<link rel="stylesheet" href="admin-style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="admin.js" defer></script>
+</head>
+<body>
+<div class="admin-container">
+    <aside class="admin-sidebar">
+        <h2>Dragon Boat Admin</h2>
+        <nav>
+            <ul>
+                <li><button onclick="showSection('dashboard')">🚀 Dashboard</button></li>
+                <li><button onclick="showSection('products')">🛒 Products</button></li>
+                <li><button onclick="showSection('orders')">📦 Orders</button></li>
+                <li><button onclick="showSection('analytics')">📊 Analytics</button></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <!-- Dashboard -->
+        <section class="admin-section" id="dashboard">
+            <h1>🚀 Dashboard</h1>
+            <p>Welcome, Admin! Use the sidebar to manage your shop.</p>
+        </section>
+
+        <!-- Products Section -->
+        <section class="admin-section" id="products">
+            <h1>🛒 Products</h1>
+            <form id="productForm">
+                <input type="text" id="productName" placeholder="Product Name" required>
+                <input type="number" id="productPrice" placeholder="Price" required>
+                <input type="text" id="productImage" placeholder="Image URL" required>
+                <textarea id="productDesc" placeholder="Description" required></textarea>
+                <button type="submit">Add Product</button>
+            </form>
+            <div class="product-cards" id="productCards"></div>
+        </section>
+
+        <!-- Orders Section -->
+        <section class="admin-section" id="orders">
+            <h1>📦 Orders</h1>
+            <table id="ordersTable">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Surname</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Orders will populate here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Analytics Section -->
+        <section class="admin-section" id="analytics">
+            <h1>📊 Analytics</h1>
+            <canvas id="salesChart" height="150"></canvas>
+        </section>
+    </main>
+</div>
+</body>
+</html>

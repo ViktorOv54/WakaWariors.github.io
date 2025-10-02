@@ -1,0 +1,63 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Tools - Dragon Boat Club</title>
+  <link rel="stylesheet" href="dev-style.css" />
+</head>
+<style>
+        footer {
+            display: flex;
+            justify-content: right; /* text left, button right */
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f1f1f1; /* adjust to match your design */
+        }
+
+        .telegram-bot {
+            background-color: black; 
+            border-radius: 50%;
+            width: 50px;   /* size of button */
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+        }
+
+        .telegram-bot img {
+            width: 28px;  /* icon size */
+            height: 28px;
+        }
+
+        .telegram-bot:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+    </style>
+<body>
+  <div class="admin-container">
+    <h2>Developer Tools Panel</h2>
+
+    <ul class="tool-list">
+      <li><a href="send-emails-log.html">📧 View Message Logs</a></li>
+      <li><a href="members-list.html">👥 View Club Members</a></li>
+      <li><a href="add-event.html">📅 Add New Event</a></li>
+      <li><a href="site-settings.html">⚙️ Site Settings</a></li>
+    </ul>
+
+    <div style="margin-top: 30px; text-align: center;">
+      <a href="index.html" class="logout-link">Return to Home | </a>
+      <a href="dev-login.html" class="logout-link">Log Out</a>
+
+      <!-- Telegram Button -->
+       <a href="https://t.me/dragon_boat_devtools_bot" target="_blank" class="telegram-bot">
+            <img src="Photos/telegram icon.png" alt="Chat on Telegram">
+       </a>
+    </div>
+  </div>
+</body>
+</html>

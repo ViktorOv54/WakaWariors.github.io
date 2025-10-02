@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dragon Boat Club - Cart</title>
+<link rel="stylesheet" href="shop style.css">
+<script src="cart.js" defer></script>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">
+        <img src="Photos/Dragon Boat Logo (3rd - 4th Iteration) v2.png" alt="Dragon Boat Logo">
+        <span>Dragon Boat Shop</span>
+    </div>
+    <nav class="nav-links">
+        <a href="shop.html">Home</a>
+        <a href="cart.html" class="active">Cart</a>
+        <a href="about.html">About</a>
+        <a href="login.html">Admin</a>
+    </nav>
+</header>
+
+<main class="cart-section" style="max-width: 1000px; margin: 50px auto; padding: 0 20px;">
+    <h2 style="text-align:center; color: var(--accent-purple); margin-bottom:30px;">Your Cart</h2>
+    <div id="cart-items" style="display: flex; flex-direction: column; gap: 15px;"></div>
+    <div id="cart-total" style="margin-top:20px; font-size:1.2rem; text-align:right; color: var(--accent-blue); font-weight:bold;"></div>
+    <div style="margin-top:30px; display:flex; gap:15px; justify-content:flex-end; flex-wrap: wrap;">
+        <button class="btn add" onclick="window.location.href='shop.html'">⬅ Continue Shopping</button>
+        <button class="btn buy" id="checkout-btn" onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2025 Dragon Boat Club · All rights reserved</p>
+</footer>
+</body>
+</html>
